@@ -25,12 +25,14 @@
     <?php
         $database = new Database();
         $db = $database->connect();
+        
     
         $product = new Product($db);
     
         $products = $product->read();
 
         if($products->rowCount() > 0){
+            
     ?>
 
     <div class="container-fluid">

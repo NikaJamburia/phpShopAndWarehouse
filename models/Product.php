@@ -67,7 +67,7 @@
             name = :name,
             description = :description,
             price = :price,
-            producer = :producer
+            producer = :producer,
             image = :image
             ";
 
@@ -77,7 +77,7 @@
                 'name' => $this->name,
                 'description' => $this->description,
                 'price' => $this->price,
-                'producer' => $this->producer,
+                'producer' => $this->producer_id,
                 'image' => $this->image
             ])){
                 return true;

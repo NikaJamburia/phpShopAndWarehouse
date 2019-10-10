@@ -18,7 +18,31 @@
             $stmt = $this->conn->prepare($query);
             $stmt->execute();
 
-            return $stmt;
+            return $stmt->fetchAll();
+        }
+
+        public function create(){
+            $query = "INSERT INTO ".$this->table." SET
+                name = :name,
+                email = :email,
+                address = :address,
+                phone = :phone
+            ";
+
+            $stmt = $this->conn->prepare($query);
+
+            if($stmt->execute([
+                'name' => $this->name,
+                'email' => $this->email,
+                'address' => $this->address,
+                'phone' => $this->phone
+            ])){
+                return true;
+            }
+            else{
+                return false;
+            }
+
         }
 
         public function show($id){
